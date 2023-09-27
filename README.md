@@ -22,6 +22,7 @@ Run the following commands to install Git, Python, and pip on your Ubuntu instan
 ```bash
 sudo apt-get update
 sudo apt-get install git python3-pip -y
+sudo apt-get install python3.10-venv
 ```
 
 You will see a "Services Restarted Box." Here's what it means:
@@ -93,7 +94,7 @@ You will see a "Services Restarted Box." Here's what it means:
        return 'Hello World!'
 
    if __name__ == "__main__":
-       app.run()
+       app.run(debug=True)
    ```
 
 7. Verify if it works by running:
@@ -221,7 +222,7 @@ Start the Nginx service and go to the Public IP address of your EC2 on the brows
    }
    ```
 
-   Add a proxy_pass to flaskhelloworld atlocation /
+   Add a proxy_pass to flaskhelloworld at location /
    ```bash
    location / {
        proxy_pass http://flaskhelloworld;
@@ -233,7 +234,7 @@ Start the Nginx service and go to the Public IP address of your EC2 on the brows
    sudo systemctl restart nginx
    ```
 
-Your Flask app is up and running publicly!
+Your Flask app is up and running publicly with the `Instance PublichIPs`!
 
 ---
 
@@ -319,6 +320,7 @@ Here's a list of some commonly used command-line commands and their descriptions
     Example:
     ```bash
     ps aux
+    ps aux | grep python
     ```
 
 11. **`kill`**: Terminate processes by their process ID (PID).
